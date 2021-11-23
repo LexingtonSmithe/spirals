@@ -20,6 +20,7 @@ let sWeightUp = true;
 
 function setup() {
   createCanvas(windowWidth - 5, windowHeight - 5);
+  R = windowHeight / 8;
   stroke(255,0,0);
   fill(255,0,0);
   //frameRate(200);
