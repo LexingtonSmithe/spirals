@@ -1,7 +1,7 @@
 let R = 150; //scale
-let k = 5/3; //ratio of first two circles
-let k2 = 2/3; //ratio of first to third
-let p = 2/3; //ratio of the paths?
+let k = random(2); //ratio of first two circles
+let k2 = random(1); //ratio of first to third
+let p = random(1); //ratio of the paths?
 let h = 0; //distance of lever to point
 
 let count = 0;
