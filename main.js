@@ -1,8 +1,8 @@
-let R = 150; //scale
-let k = random(2); //ratio of first two circles
-let k2 = random(1); //ratio of first to third
-let p = random(1); //ratio of the paths?
-let h = 0; //distance of lever to point
+let R = 150;//scale
+let k = 5/2;//ratio of first two circles
+let k2 = 2/3;//ratio of first to third
+let p = 2/3;//ratio of the paths?
+let h = 0;//distance of lever to point
 
 let count = 0;
 let timer = 1;
@@ -20,10 +20,8 @@ let sWeightUp = true;
 
 function setup() {
   createCanvas(windowWidth - 5, windowHeight - 5);
-  R = windowHeight / 8;
   stroke(255,0,0);
   fill(255,0,0);
-  //frameRate(200);
 }
 
 function draw() {
@@ -89,10 +87,10 @@ function updateK() {
   } else {
     k -= 0.001;
   }
-  if(k > 20){
+  if(k > 5){
     kUp = false;
   }
-  if(k < 2){
+  if(k <=  0.001){
     kUp = true;
   }
 }
@@ -103,41 +101,43 @@ function updateKTwo() {
   } else {
     k2 -= 0.001;
   }
-  if(k2 > 10){
+  if(k2 > 3){
     k2Up = false;
   }
-  if(k2 < 1){
+  if(k2 <= 0.001){
     k2Up = true;
   }
 }
 
 function updateP() {
+  if(pUp) {
+    p += 0.0001;
+  } else {
+    p -= 0.0001;
+  }
+  if(p > 3){
+    pUp = false;
+  }
+  if(p <= 0.001){
+    pUp = true;
+  }
+}
+
+function updateH() {
   if(hUp) {
     h += 0.3;
   } else {
     h -= 0.3;
   }
-  if(h > 10){
+  if(h > 20){
     hUp = false;
   }
-  if(h < 1){
+  if(h <= 0){
     hUp = true;
   }
 }
 
-function updateH() {
-  if(pUp) {
-    p += 0.0001;
-  } else {
-    p -= 0.0001;
-  }
-  if(p > 15){
-    pUp = false;
-  }
-  if(p < 2){
-    pUp = true;
-  }
-}
+
 
 
 function updateH() {
@@ -146,10 +146,10 @@ function updateH() {
   } else {
     p -= 0.0001;
   }
-  if(p > 15){
+  if(p > 5){
     pUp = false;
   }
-  if(p < 2){
+  if(p <= 0.1){
     pUp = true;
   }
 }
@@ -160,7 +160,7 @@ function updateSWeight() {
   } else {
     sWeight -= 0.01;
   }
-  if(sWeight > 5){
+  if(sWeight > 3){
     sWeightUp = false;
   }
   if(sWeight < 1){
